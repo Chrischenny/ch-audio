@@ -11,7 +11,7 @@ npm引入
 ### 1、audioSrc
 通过该属性传入音频地址。
 请使用require()语法进行导入。
-```
+```html
 <ch-audio 
     :width="300" 
     audioSrc="require('./assets/111.mp3')"
@@ -50,7 +50,7 @@ router.get('/getsource/:filename',async ctx=>{
 
 目前可以自定义播放以及暂停按钮的样式，请使用require()语法进行导入
 例如:
-```
+```html
 <template>
   <div id="app">
     <ch-audio 
@@ -61,8 +61,10 @@ router.get('/getsource/:filename',async ctx=>{
   </div>
 </template>
 ```
+
+### 3、width
 可自定义宽度，通过`width`传入，number类型。
-```
+```html
 <template>
   <div id="app">
     <ch-audio 
@@ -74,9 +76,12 @@ router.get('/getsource/:filename',async ctx=>{
   </div>
 </template>
 ```
+
+### 4、rem
+
 目前支持rem模式，通过props`:rem:'true'`开启，开启后可使用rem；
 例如：
-```
+```html
 <template>
   <div id="app">
     <ch-audio 
