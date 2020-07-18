@@ -2,7 +2,8 @@
 this is a vue-audio component overwrite from native audio tags
 
 一个移动端的audio组件，自定义进度条，目前版本为0.1.0测试版本，初步解决了在ios以及andriod上的兼容问题。
-npm引入
+npm引入：
+
 `npm install ch-audio`
 
 
@@ -10,7 +11,7 @@ npm引入
 
 ### 1、audioSrc
 通过该属性传入音频地址。
-请使用require()语法进行导入。
+本地音频请使用require()语法进行导入。
 ```html
 <ch-audio 
     :width="300" 
@@ -47,7 +48,7 @@ router.get('/getsource/:filename',async ctx=>{
 
 ### 2、playimg && stopimg
 
-目前可以自定义播放以及暂停按钮的样式，请使用require()语法进行导入
+目前可以自定义播放以及暂停按钮的样式，本地图片请使用require()语法进行导入
 例如:
 ```html
 <template>
