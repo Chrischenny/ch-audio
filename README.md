@@ -17,7 +17,6 @@ npm引入
     audioSrc="require('./assets/111.mp3')"
     :playimg="require('./assets/play.png')"
     :stopimg="require('./assets/stop.png')"></ch-audio>
-    <!-- <audio src="../public/111.mp3" controls></audio> -->
   </div>
   ```
   
@@ -57,7 +56,6 @@ router.get('/getsource/:filename',async ctx=>{
     audioSrc="require('./assets/111.mp3')"
     :playimg="require('./assets/play.png')"
     :stopimg="require('./assets/stop.png')"></ch-audio>
-    <!-- <audio src="../public/111.mp3" controls></audio> -->
   </div>
 </template>
 ```
@@ -72,7 +70,6 @@ router.get('/getsource/:filename',async ctx=>{
     audioSrc="require('./assets/111.mp3')"
     :playimg="require('./assets/play.png')"
     :stopimg="require('./assets/stop.png')"></ch-audio>
-    <!-- <audio src="../public/111.mp3" controls></audio> -->
   </div>
 </template>
 ```
@@ -90,7 +87,6 @@ router.get('/getsource/:filename',async ctx=>{
     audioSrc="require('./assets/111.mp3')"
     :playimg="require('./assets/play.png')"
     :stopimg="require('./assets/stop.png')"></ch-audio>
-    <!-- <audio src="../public/111.mp3" controls></audio> -->
   </div>
 </template>
 ```
