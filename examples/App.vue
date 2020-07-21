@@ -4,8 +4,7 @@
     :width="300" 
     :rem="false"  
     audioSrc="https://www.chrischenny123.com/source/111.mp3"
-    :playimg="require('./assets/play.png')"
-    :stopimg="require('./assets/stop.png')"></ch-audio>
+    ></ch-audio>
     <!-- <audio src="../public/111.mp3" controls></audio> -->
   </div>
 </template>

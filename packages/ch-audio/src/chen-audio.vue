@@ -5,14 +5,14 @@
             <source ref="oadSor" :src="audioSrc" type="audio/mp3"/>
         </audio>
         
-        <img :src="playimg" class="ch-audio__img" v-if="stop" @click="playAudio">
-        <img :src="stopimg" class="ch-audio__img" v-if="!stop" @click="stopAudio">
+        <img :src="playimg" class="ch-audio__img" v-show="stop" @click="playAudio">
+        <img :src="stopimg" class="ch-audio__img" v-show="!stop" @click="stopAudio">
 
         
         <div class="ch-audio-controlplain">
             <div ref="block" :style="[{width:totalWidth}]" class="ch-audio-clickblock">
 
-                <div class="ch-audio-progress__indicator" ref="indicator" :style="[{left:indicatorLeft}]"></div>
+                <div :class="indicatorClass" ref="indicator" :style="[{left:indicatorLeft}]"></div>
 
                 <div class="ch-audio-progress" :style="[{width:totalWidth},]" ref="block">   
 
@@ -36,7 +36,8 @@ export default {
             progressX:0,//进度条宽度数值，缓存用
             offset:0,//进度条与屏幕的距离
             audioitself:null,//缓存audio
-            block:null//缓存触摸区域
+            block:null,//缓存触摸区域
+            indicatorClass:'ch-audio-progress__indicator',
         }
     },
     props:{
@@ -54,11 +55,11 @@ export default {
         },
         playimg:{
             type:String,
-            default:''
+            default:require('./play.png')
         },
         stopimg:{
             type:String,
-            default:''
+            default:require('./stop.png')
         }
     },
     methods:{
@@ -72,6 +73,7 @@ export default {
         },
         handleTouchstart(e){//触摸事件开始事件
             //移动开始，移除timeupdate事件，防止对进度条产生干扰；
+            this.indicatorClass = 'ch-audio-progress__indicator__hover';
             this.audioitself.removeEventListener('timeupdate',this.handleTimeupdate);
             this.progressX = e.changedTouches[0].clientX - this.offset;
         },
@@ -86,6 +88,7 @@ export default {
             }
         },
         handleTouchend(e){//触摸结束侦听事件
+            this.indicatorClass = 'ch-audio-progress__indicator'
             this.audioitself.currentTime = ((e.changedTouches[0].clientX-this.offset)/this.width)*this.audioitself.duration;
             //触摸事件结束，重新添加timeupdate事件
             this.audioitself.addEventListener('timeupdate',this.handleTimeupdate);
@@ -162,6 +165,15 @@ export default {
         background: linear-gradient(white, gray);
         position: absolute;
         top:1px;
+    }
+    .ch-audio-progress__indicator__hover{
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: linear-gradient(white, gray);
+        position: absolute;
+        
+        border:2px solid orange;
     }
     .ch-audio-progress{
         margin-top: 6px;        
