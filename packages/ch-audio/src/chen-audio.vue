@@ -49,17 +49,17 @@ export default {
             type:Number,
             
         },
-        rem:{ //是否开启rem丈量尺度
+        rem:{ //是否开启rem单位
             type:Boolean,
             default:false
         },
         playimg:{
             type:String,
-            default:require('./play.png')
+            default:'./img/play.png'
         },
         stopimg:{
             type:String,
-            default:require('./stop.png')
+            default:'./img/stop.png'
         }
     },
     methods:{
