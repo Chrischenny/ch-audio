@@ -1,5 +1,4 @@
 module.exports={
-    publicPath:'./',
     pages: {
         index: {
           entry: 'examples/main.js',
@@ -7,15 +6,23 @@ module.exports={
           filename: 'index.html'
         }
     },
-    // chainWebpack: config => {
-    //     config.module
-    //         .rule('js')
-    //         .include
-    //             .add('packages')
-    //             .end()
-    //         .use('babel')
-    //             .loader('babel-loader')
-    //             .tap(options => {return options})
-    // }
+    chainWebpack: config => {
+        config.module
+            .rule('js')
+            .include
+                .add('/packages').add('/examples')
+                .end()
+            .use('babel')
+                .loader('babel-loader')
+                .tap(options => {return options})
+            .end();
+
+        config.module
+            .rule('images')
+                .use('url-loader')
+                    .loader('url-loader')
+                    .tap(options=>Object.assign(options,{limit:120000}))
+    },
+    
     
 }

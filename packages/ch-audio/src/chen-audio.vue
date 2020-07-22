@@ -1,9 +1,7 @@
 <template>
     <div ref="audio" class="ch-audio">
 
-        <audio ref="oad" preload="auto">
-            <source ref="oadSor" :src="audioSrc" type="audio/mp3"/>
-        </audio>
+        <audio ref="oad" :src="audioSrc"></audio>
         
         <img :src="playimg" class="ch-audio__img" v-show="stop" @click="playAudio">
         <img :src="stopimg" class="ch-audio__img" v-show="!stop" @click="stopAudio">
@@ -55,11 +53,11 @@ export default {
         },
         playimg:{
             type:String,
-            default:'./img/play.png'
+            default:require('./img/play.png')
         },
         stopimg:{
             type:String,
-            default:'./img/stop.png'
+            default:require('./img/stop.png')
         }
     },
     methods:{
